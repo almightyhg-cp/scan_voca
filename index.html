@@ -30,7 +30,7 @@
 
 <header>
   <h1>비춰보카(Scan Voca) 개인정보처리방침</h1>
-  <div class="meta">앱 패키지: <code>com.almightyhg.scan_voca</code> · 시행일: 2026-10-10</div>
+  <div class="meta">앱 패키지: <code>com.almightyhg.scan_voca</code> · 시행일: 2026-11-02</div>
 </header>
 
 <p>비춰보카(이하 "앱")는 카메라로 인식한 영어 단어를 나만의 단어장으로 정리하는 <strong>서버 없는(온디바이스) 앱</strong>입니다. 개발자는 별도의 서버를 운영하지 않으며, 이용자의 단어장·학습기록·설정은 <strong>이용자 기기 내부에만 저장</strong>되고 개발자에게 전송되지 않습니다.</p>
@@ -43,25 +43,24 @@
 <h3>나. 기기 내부에만 저장되는 정보 (외부 전송 없음)</h3>
 <p>단어장, 학습 기록, 앱 설정 등은 이용자 기기 내부 저장소에만 보관됩니다. 자동 클라우드 백업은 비활성화되어 있으며(<code>allowBackup=false</code>), 데이터 이전은 이용자가 직접 실행하는 앱 내 내보내기/가져오기로만 이루어집니다.</p>
 
-<h3>다. 카메라</h3>
-<p>영어 텍스트 인식(OCR)을 위해 카메라를 사용합니다. 인식은 <strong>기기 내부에서(온디바이스, Google ML Kit) 처리</strong>되며, 촬영 이미지는 저장하거나 외부로 전송하지 않습니다. 갤러리(사진 라이브러리) 접근 권한은 사용하지 않습니다.</p>
+<h3>다. 카메라·갤러리 이미지</h3>
+<p>영어 텍스트 인식(OCR)을 위해 카메라 화면을 찍거나, 이용자가 <strong>갤러리(사진 보관함)에서 직접 고른 이미지</strong>를 사용합니다. 인식은 <strong>기기 내부에서(온디바이스, Google ML Kit) 처리</strong>되며, 이미지는 외부로 전송하지 않습니다. 카메라로 찍은 화면은 인식을 위해 앱 전용 임시 폴더에 이미지 파일로 잠시 저장되며, 갤러리나 단어장에는 저장되지 않습니다. 갤러리 이미지를 고르기 위해 Android 12 이하 기기에서는 저장소 읽기 권한(<code>READ_EXTERNAL_STORAGE</code>)을 요청할 수 있습니다. 또한 이용자가 <em>오늘 기록 공유</em> 화면에서 <em>갤러리에 저장</em>을 누르면 오늘의 학습 인증 카드 이미지가 기기 갤러리('비춰보카' 앨범)에 저장됩니다.</p>
 
 <h3>라. 온라인 보충 조회 (설정에서 켜고 끌 수 있음 · 기본 켜짐)</h3>
-<p>내장 사전에 없는 단어를 조회할 때, 뜻·발음·예문을 보강하기 위해 <strong>조회하는 영어 단어(텍스트)만</strong> 아래 외부 서비스로 전송됩니다. 개인 식별정보는 함께 전송되지 않습니다. 이 기능은 <em>설정 &gt; 온라인 보충</em>에서 끌 수 있으며, 끄면 내장 사전만 사용합니다.</p>
+<p>내장 사전에 없거나 한글 뜻이 비어 있는 단어·구를 조회할 때, 그리고 재검색할 때 뜻·발음·예문을 보강하기 위해 아래 텍스트가 외부 사전·번역 서비스로 전송됩니다. <strong>조회한 단어뿐 아니라 이용자가 고른 구·숙어 전체, 그리고 사전에서 받아 온 영어 뜻풀이(정의) 문장</strong>도 한국어로 번역하기 위해 전송됩니다. 이름·연락처 등 개인 식별정보는 앱이 함께 보내지 않습니다(다만 인터넷 요청의 특성상 각 서비스는 기기의 IP 주소를 알 수 있습니다). 이 기능은 처음부터 켜져 있으며 <em>설정 &gt; 온라인 보충</em>에서 끌 수 있고, 끄면 내장 사전만 사용합니다.</p>
 <table>
   <tr><th>서비스</th><th>목적</th><th>전송 정보</th></tr>
   <tr><td>Free Dictionary API (dictionaryapi.dev)</td><td>영영 뜻·발음·예문</td><td>조회 단어</td></tr>
-  <tr><td>Wiktionary (wiktionary.org)</td><td>사전 보조</td><td>조회 단어</td></tr>
-  <tr><td>Google Translate (translate.googleapis.com)</td><td>영→한 뜻</td><td>조회 단어</td></tr>
-  <tr><td>MyMemory (mymemory.translated.net)</td><td>번역 보조</td><td>조회 단어</td></tr>
-  <tr><td>국립국어원 한국어기초사전 (krdict.korean.go.kr)</td><td>한국어 뜻풀이 보강</td><td>조회 단어</td></tr>
+  <tr><td>Wiktionary (wiktionary.org)</td><td>사전 보조(Free Dictionary 에 없을 때)</td><td>조회 단어</td></tr>
+  <tr><td>Google 번역 (translate.googleapis.com)</td><td>영→한 뜻·번역</td><td>조회 단어, 고른 구·숙어 전체, 영어 뜻풀이 문장</td></tr>
+  <tr><td>MyMemory (mymemory.translated.net)</td><td>번역 보조(Google 번역 실패 시)</td><td>조회 단어, 고른 구·숙어 전체, 영어 뜻풀이 문장</td></tr>
 </table>
 
 <h3>마. 광고 (Google AdMob)</h3>
-<p>앱은 무료 제공을 위해 Google AdMob 광고를 표시합니다. 이 과정에서 Google 및 광고 파트너가 <strong>광고 식별자(Advertising ID), 기기 정보, 앱 사용 정보 등</strong>을 수집·이용할 수 있습니다. 자세한 내용과 처리 방식은 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a>을 따릅니다.</p>
+<p>앱은 무료 제공을 위해 Google AdMob 광고를 표시합니다. 이 과정에서 Google 및 광고 파트너가 <strong>광고 식별자(Advertising ID), IP 주소로 추정한 대략적 위치, 기기 정보, 앱 사용 정보(광고 노출·클릭 등), 비정상 종료 기록·성능 등 진단 정보</strong>를 수집·이용할 수 있습니다. 자세한 내용과 처리 방식은 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a>을 따릅니다.</p>
 
-<h2>2. 처리위탁 및 제3자 제공</h2>
-<p>개발자는 이용자 정보를 판매하거나 마케팅 목적으로 제3자에게 제공하지 않습니다. 위 1항의 광고(Google) 및 온라인 보충 서비스는 해당 기능 제공을 위한 처리위탁에 해당하며, 각 서비스 제공자의 개인정보처리방침이 적용됩니다.</p>
+<h2>2. 외부 서비스로의 전송 및 제3자 제공</h2>
+<p>개발자는 이용자 정보를 판매하거나 마케팅 목적으로 제3자에게 제공하지 않습니다. 위 1항의 온라인 보충 서비스는 개발자와 별도 계약 관계가 없는 <strong>공개 사전·번역 서비스</strong>로, 앱이 해당 기능을 제공하기 위해 위 텍스트를 각 서비스로 직접 전송하는 것이며 개발자가 처리를 맡긴 수탁자가 아닙니다. 광고는 Google 이 제공합니다. 전송된 정보는 각 서비스 제공자의 개인정보처리방침에 따라 처리됩니다.</p>
 
 <h2>3. 국외 이전</h2>
 <p>Google AdMob 및 온라인 보충 서비스(Google Translate 등)는 데이터를 국외 서버에서 처리할 수 있습니다. 해당 정보는 각 서비스 제공자가 자체 방침에 따라 처리합니다.</p>
@@ -89,7 +88,7 @@
 <!-- ================= ENGLISH ================= -->
 <div class="lang" lang="en">
 <h1>Scan Voca — Privacy Policy</h1>
-<div class="meta">Package: <code>com.almightyhg.scan_voca</code> · Effective: 2026-10-10</div>
+<div class="meta">Package: <code>com.almightyhg.scan_voca</code> · Effective: 2026-11-02</div>
 
 <p>Scan Voca ("the App") is a <strong>serverless, on-device</strong> app that turns English words recognized by your camera into a personal vocabulary list. The developer operates no server; your vocabulary, study records, and settings are <strong>stored only on your device</strong> and are never sent to the developer.</p>
 
@@ -98,22 +97,22 @@
 <p>The App has no sign-up or login and does not directly collect personally identifying information such as name, email, or phone number.</p>
 <h3>b. Data stored only on your device (never transmitted)</h3>
 <p>Your vocabulary, study records, and settings are kept only in on-device storage. Automatic cloud backup is disabled (<code>allowBackup=false</code>); data transfer occurs only via user-initiated in-app export/import.</p>
-<h3>c. Camera</h3>
-<p>The camera is used for on-device English text recognition (OCR) via Google ML Kit. Captured images are <strong>processed on the device</strong> and are not stored or transmitted. The App does not access your photo library.</p>
+<h3>c. Camera and gallery images</h3>
+<p>For English text recognition (OCR) the App captures the camera view or uses an <strong>image you pick from your gallery (photo library)</strong>. Recognition is <strong>processed on the device</strong> via Google ML Kit, and images are not transmitted. A captured camera view is briefly saved as an image file in the App's private temporary folder for recognition; it is not saved to your gallery or vocabulary list. To let you pick gallery images, the App may request storage read permission (<code>READ_EXTERNAL_STORAGE</code>) on Android 12 and below. If you tap <em>Save to gallery</em> on the <em>Share today's record</em> screen, today's study card image is saved to your device gallery (album "비춰보카").</p>
 <h3>d. Online supplement lookup (toggle in Settings · on by default)</h3>
-<p>When you look up a word not in the built-in dictionary, <strong>only the queried English word (text)</strong> is sent to the following services to enrich definitions/pronunciation/examples. No personal identifiers are sent. You can disable this in <em>Settings &gt; Online supplement</em>.</p>
-<ul>
-  <li>Free Dictionary API (dictionaryapi.dev)</li>
-  <li>Wiktionary (wiktionary.org)</li>
-  <li>Google Translate (translate.googleapis.com)</li>
-  <li>MyMemory (mymemory.translated.net)</li>
-  <li>National Institute of Korean Language dictionary (krdict.korean.go.kr)</li>
-</ul>
+<p>When you look up a word or phrase that is not in the built-in dictionary or has no Korean meaning yet, and when you search again, the text below is sent to external dictionary and translation services to enrich definitions/pronunciation/examples. <strong>Besides the queried word, the whole phrase or idiom you selected and the English definition sentences received from the dictionary</strong> are also sent for translation into Korean. The App sends no personal identifiers such as your name or contact details (as with any internet request, each service can see your device's IP address). This feature is on by default; you can disable it in <em>Settings &gt; Online supplement</em>, after which only the built-in dictionary is used.</p>
+<table>
+  <tr><th>Service</th><th>Purpose</th><th>Data sent</th></tr>
+  <tr><td>Free Dictionary API (dictionaryapi.dev)</td><td>English definitions, pronunciation, examples</td><td>Queried word</td></tr>
+  <tr><td>Wiktionary (wiktionary.org)</td><td>Dictionary backup (when Free Dictionary has no entry)</td><td>Queried word</td></tr>
+  <tr><td>Google Translate (translate.googleapis.com)</td><td>English→Korean meanings and translation</td><td>Queried word, whole selected phrase/idiom, English definition sentences</td></tr>
+  <tr><td>MyMemory (mymemory.translated.net)</td><td>Translation backup (when Google Translate fails)</td><td>Queried word, whole selected phrase/idiom, English definition sentences</td></tr>
+</table>
 <h3>e. Advertising (Google AdMob)</h3>
-<p>The App shows Google AdMob ads to remain free. Google and its partners may collect and use your <strong>advertising ID, device information, and app usage</strong>, as described in the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
+<p>The App shows Google AdMob ads to remain free. Google and its partners may collect and use your <strong>advertising ID, approximate location estimated from your IP address, device information, app usage (such as ad impressions and clicks), and diagnostic information such as crash logs and performance data</strong>, as described in the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
 
-<h2>2. Sharing / Third Parties</h2>
-<p>The developer does not sell your data or share it with third parties for marketing. The advertising (Google) and online-supplement services above act as processors for those features under their own privacy policies.</p>
+<h2>2. Transfers to External Services / Third Parties</h2>
+<p>The developer does not sell your data or share it with third parties for marketing. The online-supplement services above are <strong>public dictionary and translation services</strong> with no contractual relationship with the developer; the App sends the text above directly to them to provide the feature, and they are not processors engaged by the developer. Ads are provided by Google. Data sent is handled under each provider's own privacy policy.</p>
 
 <h2>3. International Transfer</h2>
 <p>Google AdMob and online-supplement services may process data on servers outside your country, under their respective policies.</p>
